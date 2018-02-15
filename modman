@@ -1,0 +1,4 @@
+code                                app/code/local/Digidennis/BankFaktura/
+admindesign/template/*              app/design/adminhtml/default/default/template/digidennis/bankfaktura/
+design/template/*                   app/design/frontend/base/default/template/digidennis/bankfaktura/
+Digidennis_BankFaktura.xml           app/etc/modules/Digidennis_BankFaktura.xml

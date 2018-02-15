@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Digidennis_BankFaktura>
+            <version>0.1.0</version>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </Digidennis_BankFaktura>
+    </modules>
+
+    <global>
+
+        <models>
+            <digidennis_bankfaktura>
+                <class>Digidennis_BankFaktura_Model</class>
+            </digidennis_bankfaktura>
+        </models>
+
+        <blocks>
+            <digidennis_bankfaktura>
+                <class>Digidennis_BankFaktura_Block</class>
+            </digidennis_bankfaktura>
+        </blocks>
+
+        <helpers>
+            <digidennis_bankfaktura>
+                <class>Digidennis_BankFaktura_Helper</class>
+            </digidennis_bankfaktura>
+        </helpers>
+
+    </global>
+
+    <admin>
+        <routers>
+            <digidennis_bankfaktura>
+                <use>admin</use>
+                <args>
+                    <module>Digidennis_BankFaktura</module>
+                    <frontName>bankfaktura</frontName>
+                </args>
+            </digidennis_bankfaktura>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <digidennis_bankfaktura_core_block_abstract_prepare_layout_before>
+                        <type>model</type>
+                        <class>Digidennis_BankFaktura_Model_Observer</class>
+                        <method>completeOrderAction</method>
+                    </digidennis_bankfaktura_core_block_abstract_prepare_layout_before>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
+
+    <default>
+        <payment>
+            <digidennis_bankfaktura>
+                <model>digidennis_bankfaktura/bank</model>
+                <active>1</active>
+                <order_status>pending</order_status>
+                <title>Faktura</title>
+                <payment_action>sale</payment_action>
+                <sort_order>1</sort_order>
+            </digidennis_bankfaktura>
+        </payment>
+    </default>
+
+</config>
