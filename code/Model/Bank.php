@@ -22,4 +22,20 @@ class Digidennis_BankFaktura_Model_Bank extends Mage_Payment_Model_Method_Abstra
         return $this->getCheckout()->getQuote();
     }
 
+    /**
+     * Capture payment abstract method
+     *
+     * @param Varien_Object $payment
+     * @param float $amount
+     *
+     * @return Mage_Payment_Model_Abstract
+     */
+    public function capture(Varien_Object $payment, $amount)
+    {
+        if (!$this->canCapture()) {
+            Mage::throwException(Mage::helper('payment')->__('Capture action is not available.'));
+        }
+
+        return $this;
+    }
 }

@@ -1,0 +1,23 @@
+<?php $_terms = Mage::getStoreConfig('payment/digidennis_bankfaktura/termstext', Mage::app()->getStore()->getStoreId() ); ?>
+<?php $_reg = Mage::getStoreConfig('payment/digidennis_bankfaktura/regnr', Mage::app()->getStore()->getStoreId() ); ?>
+<?php $_konto = Mage::getStoreConfig('payment/digidennis_bankfaktura/kontonr', Mage::app()->getStore()->getStoreId() ); ?>
+<?php $_bank = Mage::getStoreConfig('payment/digidennis_bankfaktura/bank', Mage::app()->getStore()->getStoreId() ); ?>
+<?php $_forfald = Mage::getStoreConfig('payment/digidennis_bankfaktura/forfald', Mage::app()->getStore()->getStoreId() ); ?>
+<?php if($this->getInvoice()): ?>
+    <?php if(!is_null($_terms)): ?>
+        <b><?php echo $this->__('Betalingsbetingelser:'); ?></b> <?php echo $_terms; ?><br>
+    <?php endif; ?>
+    <?php if(!is_null($_forfald)): ?>
+        <b><?php echo $this->__('Forfaldsdato:'); ?></b> <?php echo $this->getForfald($_forfald); ?><br>
+    <?php endif; ?>
+    <?php if(!is_null($_bank)):?>
+        <b><?php echo $this->__('Bank:'); ?></b> <?php echo $_bank; ?><br>
+    <?php endif; ?>
+    <?php if(!is_null($_reg && $_konto)):?>
+        <b><?php echo $this->__('Reg.nr:'); ?></b> <?php echo $_reg; ?> <b><?php echo $this->__('Konto:'); ?></b> <?php echo $_konto; ?><br>
+    <?php endif; ?>
+    </p>
+    <br>
+<?php else: ?>
+    <p><b>Faktura</b><br></p>
+<?php endif; ?>
