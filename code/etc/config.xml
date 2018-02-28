@@ -46,15 +46,14 @@
 
     <adminhtml>
         <events>
-            <core_block_abstract_prepare_layout_before>
+            <sales_order_payment_place_end>
                 <observers>
-                    <digidennis_bankfaktura_core_block_abstract_prepare_layout_before>
-                        <type>model</type>
+                    <digidennis_bankfaktura>
                         <class>Digidennis_BankFaktura_Model_Observer</class>
-                        <method>completeOrderAction</method>
-                    </digidennis_bankfaktura_core_block_abstract_prepare_layout_before>
+                        <method>onPaymentPlaceEnd</method>
+                    </digidennis_bankfaktura>
                 </observers>
-            </core_block_abstract_prepare_layout_before>
+            </sales_order_payment_place_end>
         </events>
     </adminhtml>
 
